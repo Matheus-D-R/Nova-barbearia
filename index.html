@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
-
-
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0"
-  }
-}
-</script>
-<script type="module" src="/index.tsx"></script>
-
-
-    
-     <meta name="google" content="notranslate">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso Profissional de Barbeiro - Master Barber</title>
     <meta name="description" content="Torne-se um barbeiro de elite e domine as técnicas mais modernas de corte e barba." />
-    
+    <meta name="google" content="notranslate">
+
+    <title>Curso Profissional de Barbeiro - Master Barber</title>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -50,32 +36,110 @@
       }
     </script>
 
-   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2702724523459314');
-    fbq('track', 'PageView');
-  </script>
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+      }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
-  }
-}
-</script>
-</head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-gold-500 selection:text-white">
+      fbq('init', '2702724523459314'); // SEU ID DO PIXEL
+      fbq('track', 'PageView'); // PageView automático
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=2702724523459314&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <!-- React Import Maps -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+      }
+    }
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </head>
+
+  <body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-gold-500 selection:text-black">
     <div id="root"></div>
+
+    <!-- Componente React principal -->
+    <script type="module">
+      import React from "react";
+      import { createRoot } from "react-dom/client";
+      import { motion } from "framer-motion";
+
+      function App() {
+        const handlePurchase = () => {
+          fbq('track', 'Purchase', {value: 199.9, currency: 'BRL'});
+          alert("Evento Purchase enviado!"); // só para teste
+        };
+
+        return (
+          <div className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+            {/* Hero Section */}
+            <motion.h1
+              className="text-4xl md:text-6xl font-serif mb-6 text-gold-500"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Torne-se um Barbeiro Profissional
+            </motion.h1>
+
+            <p className="text-zinc-300 mb-8 max-w-2xl">
+              Aprenda as técnicas mais modernas de corte e barba, domine seu negócio e alcance a elite do mercado de barbearia.
+            </p>
+
+            <motion.button
+              className="bg-gold-500 text-black px-8 py-4 rounded-lg font-bold hover:bg-gold-600 transition"
+              whileHover={{ scale: 1.05 }}
+              onClick={handlePurchase}
+            >
+              Comprar Agora
+            </motion.button>
+
+            {/* Sobre o Curso */}
+            <section className="mt-20 max-w-4xl text-left">
+              <h2 className="text-3xl font-serif text-gold-500 mb-4">O que você vai aprender</h2>
+              <ul className="list-disc ml-6 text-zinc-200 space-y-2">
+                <li>Cortes modernos e clássicos</li>
+                <li>Técnicas de barba e estilização</li>
+                <li>Gestão do seu próprio negócio de barbearia</li>
+                <li>Atendimento premium e fidelização de clientes</li>
+              </ul>
+            </section>
+
+            {/* Depoimentos */}
+            <section className="mt-16 max-w-4xl">
+              <h2 className="text-3xl font-serif text-gold-500 mb-6">Depoimentos de Alunos</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-zinc-800 p-4 rounded-lg">
+                  <p className="text-zinc-200">“Transformou minha carreira, hoje tenho minha própria barbearia!”</p>
+                  <p className="mt-2 font-bold text-gold-500">- João Silva</p>
+                </div>
+                <div className="bg-zinc-800 p-4 rounded-lg">
+                  <p className="text-zinc-200">“Aprendi técnicas que nunca vi em outro lugar, super recomendo!”</p>
+                  <p className="mt-2 font-bold text-gold-500">- Maria Fernandes</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        );
+      }
+
+      const root = createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
   </body>
 </html>
+
+
